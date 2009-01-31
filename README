@@ -9,7 +9,7 @@ though. :)
 Installation
 ------------
 
-script/plugin install http://svn.intridea.com/svn/public/needy_controllers
+script/plugin install git://github.com/radicaled/can_has_assets.git
 
 Notes
 -----
