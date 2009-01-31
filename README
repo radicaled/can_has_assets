@@ -34,7 +34,7 @@ CSS
 ---
 <% can_has_css 'css_file' %>
 
-<% can_has_style :sample_snippet do %>
+<% can_has_css :sample_snippet do %>
 .item {
     /* some fake example css here */
 }
