@@ -1,0 +1,54 @@
+CanHasAssets
+============
+
+can_has_assets is a super-simple way of requiring stylesheets and javascript files
+from within views. It also supports inserting snippets of CSS and Javascript into
+a page only once. Snippet support should really only be used for rapid prototyping,
+though. :)
+
+Installation
+------------
+
+script/plugin install http://svn.intridea.com/svn/public/needy_controllers
+
+Notes
+-----
+
+can_has_* will include a file or snippet only once -- it is safe to call these
+methods multiple times, where-ever required.
+
+Alternatives
+------------
+
+If you're looking for more control, consider Needy Controllers by Michael Bleigh:
+
+http://github.com/mbleigh/needy-controllers/tree
+
+
+Example
+=======
+
+In your views:
+
+CSS
+---
+<% can_has_css 'css_file' %>
+
+<% can_has_style :sample_snippet do %>
+.item {
+    /* some fake example css here */
+}
+
+Javascript
+----------
+<% can_has_js 'js_file' %>
+
+<% can_has_js :sample_snippet do %>
+function helloWorld() {
+    alert("Hello, world!");
+}
+<% end %>
+
+
+<% end %>
+Copyright (c) 2009 Arron Washington, released under the MIT license
