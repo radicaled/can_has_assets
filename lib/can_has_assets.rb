@@ -28,22 +28,22 @@ module CanHasAssets
       if block_given?
         asset[:snippets][sources.first] = capture(&block)
       else
-        asset[:sources].merge sources
+        asset[:sources].concat sources
       end
     end
 
     def javascript
-      @javascripts ||= { :sources => Set.new, :snippets => {} }
+      @javascripts ||= { :sources => Array.new, :snippets => {} }
     end
 
     def stylesheet
-      @stylesheets ||= { :sources => Set.new, :snippets => {} }
+      @stylesheets ||= { :sources => Array.new, :snippets => {} }
     end
 
     def process_assets(asset, sources)
       snippets = "\r\n"
       if sources.include? :can_has_assets
-        sources.insert(sources.index(:can_has_assets), *asset[:sources])
+        sources.insert(sources.index(:can_has_assets), *(asset[:sources].uniq))
         sources.delete(:can_has_assets)
         snippets << asset[:snippets].collect {|k, v| v }.join("\r\n")
       end
